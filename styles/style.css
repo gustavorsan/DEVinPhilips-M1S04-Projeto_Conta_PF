@@ -1,0 +1,8 @@
+
+footer{
+  display: flex;
+  flex-direction: row;
+}
+footer div{
+ margin-right: 30px;
+}
