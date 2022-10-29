@@ -13,21 +13,22 @@
       <img src="/images/logo.PNG" alt="logo DEVinBANK"/>
     </div>
   </header>
-  <form>
+  <form id="form_cadastro">
     <label for="nome">Nome:</label>
     <input type="text" name="nome" id="nome">
-    <label for="nome">Cpf:</label>
+    <label for="cpf">Cpf:</label>
     <input type="text" name="cpf" id="cpf">
-    <label for="nome">Celular:</label>
+    <label for="celular">Celular:</label>
     <input type="text" name="celular" id="celular">
-    <label for="nome">Senha:</label>
+    <label for="senha">Senha:</label>
     <input type="password" name="senha" id="senha">
-    <label for="nome">Confirme a Senha:</label>
-    <input type="password" name="senha-c" id="senha-c">
+    <label for="confirmaSenha">Confirme a Senha:</label>
+    <input type="password" name="confirmaSenha" id="confirmaSenha">
     <div class="button-container">
       <input type="submit" name="enviar" id="enviar" value="enviar">
       <input type="button" name="limpar" id="limpar" value="limpar">
     </div>
+    <span id="erro" hidden></span>
   </form>
   <footer>
     <div>

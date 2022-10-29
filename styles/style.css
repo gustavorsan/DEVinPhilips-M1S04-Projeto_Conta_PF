@@ -18,3 +18,9 @@ footer div{
 .button-container{
   margin-top: 5px;
 }
+
+#erro{
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
+}
