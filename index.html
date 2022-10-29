@@ -13,8 +13,31 @@
       <img src="/images/logo.PNG" alt="logo DEVinBANK"/>
     </div>
   </header>
+  <div class="action_button_container">
+    <button id="bt_cad" class="action-button">Cadastrar</button>
+    <button id="bt_opr" class="action-button">Operacao</button>
+  </div>
+  <form id="form_operacao" >
+    <label for="operacao">Operacao:</label>
+    <select name="operacao" id="operacao">
+      <option value="consulta">Consulta</option>
+      <option value="saque">Saque</option>
+      <option value="deposito">Deposito</option>
+    </select>
+    <label for="valor">Valor:</label>
+    <input type="number" name="valor" id="valor" disabled>
+    <label for="conta">Conta:</label>
+    <input type="text" name="conta" id="conta">
+    <label for="senhaConta">Senha:</label>
+    <input type="password" name="senhaConta" id="senhaConta">
+    <div class="button-container">
+      <input type="submit" name="enviar" id="enviar-opr" value="enviar">
+      <input type="button" name="limpar" id="limpar-opr" value="limpar">
+    </div>
+    
+  </form>
   <form id="form_cadastro">
-    <label for="nome">Nome:</label>
+    <label for="nome">Naome:</label>
     <input type="text" name="nome" id="nome">
     <label for="cpf">Cpf:</label>
     <input type="text" name="cpf" id="cpf">
@@ -25,11 +48,11 @@
     <label for="confirmaSenha">Confirme a Senha:</label>
     <input type="password" name="confirmaSenha" id="confirmaSenha">
     <div class="button-container">
-      <input type="submit" name="enviar" id="enviar" value="enviar">
-      <input type="button" name="limpar" id="limpar" value="limpar">
+      <input type="submit" name="enviar" id="enviar-cad" value="enviar">
+      <input type="button" name="limpar" id="limpar-cad" value="limpar">
     </div>
-    <span id="erro" hidden></span>
   </form>
+  <span id="erro" hidden></span>
   <footer>
     <div>
       <span>2022 - [Dev]Bank</span>

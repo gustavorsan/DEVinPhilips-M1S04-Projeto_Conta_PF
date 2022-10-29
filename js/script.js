@@ -1,7 +1,37 @@
-let form = document.getElementById('form_cadastro');
+let formCad = document.getElementById('form_cadastro');
+let formOpr = document.getElementById('form_operacao');
+let buttonCad = document.getElementById('bt_cad');
+let buttonOpr = document.getElementById('bt_opr');
 let err = document.getElementById('erro');
-let isError = false;
+let operacao = document.getElementById('operacao');
+let valor = document.getElementById('valor');
+let erroAtivo = false;
 let usuarios = [];
+let cadAtivo = false;
+let oprAtivo = false;
+
+
+function apresentaFormCad(){
+  if(oprAtivo){
+    formOpr.style.display = 'none';
+    oprAtivo = false;
+  }
+  if(!cadAtivo){
+    formCad.style.display = 'flex';
+    cadAtivo = true;
+  }
+}
+
+function apresentaFormOpr(){
+  if(cadAtivo){
+    formCad.style.display = 'none';
+    cadAtivo = false;
+  }
+  if(!oprAtivo){
+    formOpr.style.display = 'flex';
+    oprAtivo = true;
+  }
+}
 
 function validaString(str){
   return !!str.trim();
@@ -9,7 +39,7 @@ function validaString(str){
 
 function apresentaErro(msg){
     err.hidden = false;
-    isError = true;
+    erroAtivo = true;
     err.innerText = msg;
 }
 
@@ -20,7 +50,7 @@ function geraId(){
 function validaCadastro(event){
   event.preventDefault();
   let msgErro = '';
-  if(isError){
+  if(erroAtivo){
     err.innerText = '';
     err.hidden = true;
   }
@@ -67,4 +97,20 @@ function cadastraUsuario(usuario){
   usuarios.push(usuario);
 }
 
-form.addEventListener('submit',validaCadastro)
+
+function validaOperacao(event){
+  event.preventDefault();
+  console.log(event.target.operacao.value)
+}
+
+function validaOperacao(event){
+  let opr = event.target.value;
+
+  opr === 'consulta' ? valor.disabled = true : valor.disabled = false;
+}
+
+formCad.addEventListener('submit',validaCadastro);
+formOpr.addEventListener('submit',validaOperacao);
+buttonCad.addEventListener('click',apresentaFormCad);
+buttonOpr.addEventListener('click',apresentaFormOpr);
+operacao.addEventListener('change',validaOperacao);
