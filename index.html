@@ -13,6 +13,23 @@
       <img src="/images/logo.PNG" alt="logo DEVinBANK"/>
     </div>
   </header>
+  <form id="form_cadastro">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome">
+    <label for="cpf">Cpf:</label>
+    <input type="text" name="cpf" id="cpf">
+    <label for="celular">Celular:</label>
+    <input type="text" name="celular" id="celular">
+    <label for="senha">Senha:</label>
+    <input type="password" name="senha" id="senha">
+    <label for="confirmaSenha">Confirme a Senha:</label>
+    <input type="password" name="confirmaSenha" id="confirmaSenha">
+    <div class="button-container">
+      <input type="submit" name="enviar" id="enviar" value="enviar">
+      <input type="button" name="limpar" id="limpar" value="limpar">
+    </div>
+    <span id="erro" hidden></span>
+  </form>
   <footer>
     <div>
       <span>2022 - [Dev]Bank</span>

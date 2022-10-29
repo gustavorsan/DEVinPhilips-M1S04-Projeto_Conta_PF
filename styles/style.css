@@ -1,8 +1,26 @@
 
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+form label{
+  margin-top: 5px;
+}
 footer{
   display: flex;
   flex-direction: row;
 }
 footer div{
  margin-right: 30px;
+}
+
+.button-container{
+  margin-top: 5px;
+}
+
+#erro{
+  color: red;
+  font-size: 30px;
+  font-weight: bold;
 }
