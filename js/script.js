@@ -207,7 +207,17 @@ function processarOperacao(opr,indexConta,conta){
 
 
 function sacarConta(conta,valor){
+  if (valor <=0){
+    apresentaErro('O valor deve ser maior que 0');
+    return;
+  }
+  if(valor > usuarios[conta].saldo ){
+    apresentaErro('Saldo insuficiente para o saque');
+    return;
+  }
+  usuarios[conta].saldo  -= valor;
   limparFormOpr();
+  apresentaDadosConta(`Saque realizado com sucesso! saldo: ${usuarios[conta].saldo}`);
 }
 
 function depositarConta(conta,valor){
@@ -217,7 +227,7 @@ function depositarConta(conta,valor){
   }
   usuarios[conta].saldo  += valor;
   limparFormOpr();
-  apresentaDadosConta(`Deposito realizado com sucesso saldo: ${usuarios[conta].saldo}`);
+  apresentaDadosConta(`Deposito realizado com sucesso! saldo: ${usuarios[conta].saldo}`);
 }
 
 function consultaConta(conta,indexConta){
