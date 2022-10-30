@@ -1,6 +1,6 @@
 
 form{
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 40px;
 }
@@ -21,6 +21,12 @@ footer div{
 
 #erro{
   color: red;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#dados-conta{
+  color: green;
   font-size: 30px;
   font-weight: bold;
 }
