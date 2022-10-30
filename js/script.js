@@ -47,14 +47,18 @@ function geraId(){
   return Date.now() + Math.floor(1000 + Math.random() * 90000);
 }
 
+function apagaErro(){
+  err.innerText = '';
+  err.hidden = true;
+}
+
 function validaCadastro(event){
   event.preventDefault();
   let msgErro = '';
   if(erroAtivo){
-    err.innerText = '';
-    err.hidden = true;
+    apagaErro();
   }
-  console.log(usuarios)
+ 
 
   let nome = event.target.nome.value;
   let cpf = event.target.cpf.value;
@@ -88,7 +92,9 @@ function validaCadastro(event){
     cpf,
     nome,
     celular,
-    senha}
+    senha,
+    saldo: 0
+  }
 
   cadastraUsuario(usuario);
 }
@@ -109,8 +115,55 @@ function validaOperacao(event){
   opr === 'consulta' ? valor.disabled = true : valor.disabled = false;
 }
 
+function validarConta(event){
+  event.preventDefault();
+  if(erroAtivo){
+    apagaErro();
+  }
+  let conta = event.target.conta.value;
+  let senha = event.target.conta.value;
+  let operacao = operacao.value;
+  
+  let indexConta = usuarios.map(usr => usr.id).indexOf(conta);
+
+  if(indexConta === -1 ){
+    apresentaErro('usuario ou conta invalido');
+    return
+  }
+  if(usuarios[indexConta].senha !== senha){
+    apresentaErro('usuario ou conta invalido');
+    return
+  }
+
+  processarOperacao(opr,indexConta)
+}
+
+function processarOperacao(opr,indexConta){
+  switch(opr){
+    case 'saque'   : sacarConta(indexConta,valor.value);
+                     break;
+    case 'deposito': depositarConta(indexConta,valor.value);
+                     break;
+    case 'consulta': consultaConta(indexConta);
+                     break;
+  }
+}
+
+
+function sacarConta(conta,valor){
+
+}
+
+function depositarConta(conta,valor){
+
+}
+
+function consultaConta(conta){
+
+}
+
 formCad.addEventListener('submit',validaCadastro);
-formOpr.addEventListener('submit',validaOperacao);
+formOpr.addEventListener('submit',validarConta);
 buttonCad.addEventListener('click',apresentaFormCad);
 buttonOpr.addEventListener('click',apresentaFormOpr);
 operacao.addEventListener('change',validaOperacao);
